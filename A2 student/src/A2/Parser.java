@@ -20,24 +20,23 @@ public class Parser {
     currentToken = 0;
     root = new DefaultMutableTreeNode("expression");
     //
-    rule_Y(root);
+    rule_R(root);
     //
     return root;
   }
   
-  private static boolean rule_Y(DefaultMutableTreeNode parent){	  
+  private static boolean rule_Y(DefaultMutableTreeNode parent){
+	  
 	  
 	    boolean error;
 	    DefaultMutableTreeNode node;
-	    node = new DefaultMutableTreeNode("Y");
-	    parent.add(node);	    
+	    node = new DefaultMutableTreeNode("R");
+	    parent.add(node);
+	    error = rule_E(node);
 	    
-	    if (tokens.get(currentToken).getWord().equals("!")) {
-		    currentToken++;
-	    }
-	    error = rule_R(node);
 	    
-	    return error;	  
+	    return error;
+	  
   }
 
   
